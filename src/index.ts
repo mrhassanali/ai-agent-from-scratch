@@ -1,7 +1,7 @@
 import 'dotenv/config'
 
 import { runLLM } from './llm'
-import { getMessages } from './memory'
+import { addMessages, getMessages } from './memory'
 
 const userMessage = process.argv[2]
 
@@ -11,13 +11,18 @@ if (!userMessage) {
 }
 
 async function main() {
+  // Append the user message to memory
+  await addMessages([{ role: 'user', content: userMessage }])
+
   // Get the History from memory (not implemented in this snippet)
   const messages = await getMessages()
 
   const response = await runLLM({
-    messages: [...messages, { role: 'user', content: userMessage }],
+    messages,
   })
 
+  // Output the response
+  await addMessages([{ role: 'assistant', content: response.content }])
   console.log(response)
 }
 
