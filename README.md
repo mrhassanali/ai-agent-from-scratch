@@ -275,3 +275,17 @@ User: "What about tomorrow?"
 2. Current task messages
 3. Recent context
 4. Reference information
+
+
+### Could things like RAG be used to help with this?
+
+Yes, RAG, yeah.RAG stands for Retrieval Augmented Generation.
+It's a fancy word for, I won't get into too much detail.But basically, it allows the AI to go search for the most relevant parts of a previous conversation according to the user message, and bring just those parts in.
+Yes, that can help if you build a good rack pipeline, and that is a multi billion dollar company of just figuring out how to do rack.
+
+If there's one flashlight app of AI right now It's trying to figure out how to do RAG good.And every day there's two white papers that come out,and it's like, this is the best way to do RAG now.And it's like impossible to keep up.It is literally sent out a tweet a week ago, or maybe two weeks ago and was like,
+
+### why is no one making RAG as a service?
+
+This is so hard, and everyone needs it, this should just be a thing, and it just really isn't.Cuz it really is very hard.I had to spend like a month on our app figuring out our garbage implementation of it today.So like it's quite difficult, but when it works well, you're right.It will do that, yeah.
+
