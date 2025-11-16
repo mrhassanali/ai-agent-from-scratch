@@ -3,7 +3,8 @@ import 'dotenv/config'
 import { runLLM } from './llm'
 import { addMessages, getMessages } from './memory'
 
-const userMessage = process.argv[2]
+// Get user message from command line argument e.g npm start "Hello"
+const userMessage = process.argv[2] 
 
 if (!userMessage) {
   console.error('Please provide a message')
