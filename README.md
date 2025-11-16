@@ -154,3 +154,11 @@ Not all agents are assistants, but all assistants can be considered agents. Here
 - [OpenAI API documentation](https://platform.openai.com/docs/api-reference/introduction)
 - [Anthropic Claude documentation](https://docs.anthropic.com/en/docs/welcome)
 
+
+## what is LangChain?
+
+- LangChain is a framework that you can use to build AI applications, whether it's agents. 
+- These retrieval mechanisms, input sources, everything you need to build a production ready AI integration in your product.
+- LangChain strives to be that. Originally created in Python, there is a TypeScript implementation. In my opinion, I think LangChain's value today is not that high. I think it was really good if you were a Python developer back in the 3.5 days with OpenAI because OpenAI's API was still being developed and they were still trying to figure it out and there wasn't really cool things right now.
+- Like tool calling and structured outputs, and providing OpenAI a schema. You can do a schema now, as you'll see, and today we'll use that. They didn't have that back then, so LangChain filled that void. If you want to get something back in a very specific JSON format, LangChain had a way to do that.
+- It would basically just call your thing or repeat and repeat until it did it or have another LLM check it for you, but you don't have to do those things anymore. So I feel like the value is not there. I don't know, I'll probably use LangChain for like a month a couple years ago, and I've never used it again.
