@@ -323,8 +323,7 @@ This is so hard, and everyone needs it, this should just be a thing, and it just
     - Educational tutors
     - Mental health support assistants
     - Technical support agents
-- Example Implementation:
-
+- **Example Implementation:**
 
 ```tsx
 interface ChatAgent {
