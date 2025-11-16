@@ -162,3 +162,111 @@ Not all agents are assistants, but all assistants can be considered agents. Here
 - LangChain strives to be that. Originally created in Python, there is a TypeScript implementation. In my opinion, I think LangChain's value today is not that high. I think it was really good if you were a Python developer back in the 3.5 days with OpenAI because OpenAI's API was still being developed and they were still trying to figure it out and there wasn't really cool things right now.
 - Like tool calling and structured outputs, and providing OpenAI a schema. You can do a schema now, as you'll see, and today we'll use that. They didn't have that back then, so LangChain filled that void. If you want to get something back in a very specific JSON format, LangChain had a way to do that.
 - It would basically just call your thing or repeat and repeat until it did it or have another LLM check it for you, but you don't have to do those things anymore. So I feel like the value is not there. I don't know, I'll probably use LangChain for like a month a couple years ago, and I've never used it again.
+
+
+
+# 3. Memory
+
+# Memory in Chat Applications
+
+## What is Chat Memory?
+
+- Collection of previous messages in the conversation
+- Enables context retention across interactions
+- Allows for coherent back-and-forth dialogue
+- Critical for multi-step tasks and references
+
+### Message Types in Memory
+
+```js
+// System message - Sets behavior
+{
+  role: 'system',
+  content: 'You are a helpful assistant...'
+}
+
+// User messages - Human inputs
+{
+  role: 'user',
+  content: 'What's the weather like?'
+}
+
+// Assistant messages - LLM responses
+{
+  role: 'assistant',
+  content: 'Let me check the weather for you',
+  tool_calls: [...]
+}
+
+// Tool messages - Function results
+{
+  role: 'tool',
+  content: '{"temp": 72, "conditions": "sunny"}',
+  tool_call_id: 'call_123'
+}
+```
+
+## Why Memory Matters
+
+### Context Awareness
+
+- Understand references to previous messages
+- Remember user preferences
+- Track progress on tasks
+- Maintain conversation coherence
+
+### Examples of Context
+
+```js
+User: "What's the weather like?"
+Assistant: "It's 72° and sunny"
+User: "What about tomorrow?"
+// Needs memory to know we're talking about weather
+```
+
+### Task Continuity
+
+- Remember steps completed
+- Track information gathered
+- Maintain state between function calls
+- Handle multi-turn interactions
+
+## Memory Limitations
+
+### Token Limits
+
+- LLMs have fixed context windows
+- Older messages may need removal
+- Important context can be lost
+- Balancing detail vs. length
+
+### Important Considerations
+
+- Most recent messages often most relevant
+- System message always needed
+- Tool responses provide key information
+- Some conversations need more history than others
+
+## Message Management Strategies
+
+### What to Keep
+
+- System instructions
+- Recent messages
+- Critical information
+- Current task context
+
+
+### What to Remove
+
+- Old, resolved queries
+- Redundant information
+- Irrelevant chat
+- Completed task steps
+
+### Priority Order
+
+1. System message (always)
+2. Current task messages
+3. Recent context
+4. Reference information
