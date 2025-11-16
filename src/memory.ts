@@ -7,6 +7,10 @@ export type MessageWithMetadata = AIMessage & {
   createdAt: string
 }
 
+type Data = {
+  messages: MessageWithMetadata[]
+}
+
 export const addMetadata = (message: AIMessage): MessageWithMetadata => ({
   ...message,
   id: uuidv4(),
@@ -18,10 +22,7 @@ export const removeMetadata = (message: MessageWithMetadata): AIMessage => {
   return messageWithoutMetadata
 }
 
-type Data = {
-  messages: MessageWithMetadata[]
-}
-
+// Default data structure in the database db.json
 const defaultData: Data = { messages: [] }
 
 export const getDb = async () => {
