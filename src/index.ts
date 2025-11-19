@@ -1,10 +1,12 @@
 import 'dotenv/config'
 
 import { runLLM } from './llm'
+import { runAgent } from './agent'
 import { addMessages, getMessages } from './memory'
+import z from 'zod'
 
 // Get user message from command line argument e.g npm start "Hello"
-const userMessage = process.argv[2] 
+const userMessage = process.argv[2]
 
 if (!userMessage) {
   console.error('Please provide a message')
@@ -12,18 +14,15 @@ if (!userMessage) {
 }
 
 async function main() {
-  // Append the user message to memory
-  await addMessages([{ role: 'user', content: userMessage }])
+  const weatherTool = {
+    name: 'get_weather',
+    description: `use this to get the weather.`,
+    parameters: z.object({
+      reasoning: z.string().describe('why did you pick this tool?'),
+    }),
+  }
 
-  // Get the History from memory (not implemented in this snippet)
-  const messages = await getMessages()
-
-  const response = await runLLM({
-    messages,
-  })
-
-  // Output the response
-  await addMessages([{ role: 'assistant', content: response.content }])
+  const response = await runAgent({ userMessage, tools: [weatherTool] })
   console.log(response)
 }
 
