@@ -1,8 +1,7 @@
-import type { AIMessage } from '../types'
 import { addMessages, getMessages, saveToolResponse } from './memory'
 import { runLLM } from './llm'
 import { showLoader, logMessage } from './ui'
-import { runTool } from './toolRunner'
+import { runTool } from './tools/toolRunner'
 
 export const runAgent = async ({ userMessage, tools }: { userMessage: string; tools: any[] }) => {
   await addMessages([{ role: 'user', content: userMessage }])

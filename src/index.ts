@@ -4,6 +4,7 @@ import { runLLM } from './llm'
 import { runAgent } from './agent'
 import { addMessages, getMessages } from './memory'
 import z from 'zod'
+import { tools } from '../src/tools'
 
 // Get user message from command line argument e.g npm start "Hello"
 const userMessage = process.argv[2]
@@ -14,16 +15,19 @@ if (!userMessage) {
 }
 
 async function main() {
-  const weatherTool = {
-    name: 'get_weather',
-    description: `use this to get the weather.`,
-    parameters: z.object({
-      reasoning: z.string().describe('why did you pick this tool?'),
-    }),
-  }
+  // const weatherTool = {
+  //   name: 'get_weather',
+  //   description: `use this to get the weather.`,
+  //   parameters: z.object({
+  //     reasoning: z.string().describe('why did you pick this tool?'),
+  //   }),
+  // }
 
-  const response = await runAgent({ userMessage, tools: [weatherTool] })
-  console.log(response)
+  // const response = await runAgent({ userMessage, tools: [weatherTool] })
+  // console.log(response)
+
+  const responseWithTools = await runAgent({ userMessage, tools })
+  console.log(responseWithTools)
 }
 
 main().catch((err) => {

@@ -1,3 +1,81 @@
 {
-  "messages": []
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hi",
+      "id": "a10bab75-a00a-4ad3-9052-590cc0d54e7b",
+      "createdAt": "2025-11-19T22:22:20.620Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you today?",
+      "refusal": null,
+      "annotations": [],
+      "id": "14525d5a-0960-4d5a-829d-e2d86ee99743",
+      "createdAt": "2025-11-19T22:22:22.519Z"
+    },
+    {
+      "role": "user",
+      "content": "what is the weather of lahore pakistan",
+      "id": "c25a62ec-b007-41d9-acff-7dde7153cfbf",
+      "createdAt": "2025-11-19T22:22:39.725Z"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_Jw36OnoRjcguUWX19JYnE9RK",
+          "type": "function",
+          "function": {
+            "name": "get_weather",
+            "arguments": "{\"reasoning\":\"To provide the current weather information for Lahore, Pakistan.\"}"
+          }
+        }
+      ],
+      "refusal": null,
+      "annotations": [],
+      "id": "5ff45cd3-06e7-4c62-994a-c20de5bd56fa",
+      "createdAt": "2025-11-19T22:22:41.432Z"
+    },
+    {
+      "role": "tool",
+      "content": "hot, 90deg",
+      "tool_call_id": "call_Jw36OnoRjcguUWX19JYnE9RK",
+      "id": "19448695-c7d5-4b6a-a5ef-48c010e2dd68",
+      "createdAt": "2025-11-19T22:22:41.438Z"
+    },
+    {
+      "role": "assistant",
+      "content": "The current weather in Lahore, Pakistan is hot, with a temperature of 90°F. If you need more details or forecasts, feel free to ask!",
+      "refusal": null,
+      "annotations": [],
+      "id": "264c1198-4585-4761-a3fc-18ce58fc2b58",
+      "createdAt": "2025-11-19T22:22:43.173Z"
+    },
+    {
+      "role": "user",
+      "content": "create a meme imag for random dad joke",
+      "id": "5578e6e0-722f-4f34-ae3f-3e2b9b1a16a0",
+      "createdAt": "2025-11-23T11:55:56.275Z"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_P9P82AjyKkAzV9HP7CrKE5WK",
+          "type": "function",
+          "function": {
+            "name": "dad_joke",
+            "arguments": "{}"
+          }
+        }
+      ],
+      "refusal": null,
+      "annotations": [],
+      "id": "fa0c24b7-625f-4bcd-9fce-880835681b99",
+      "createdAt": "2025-11-23T11:55:59.465Z"
+    }
+  ]
 }
